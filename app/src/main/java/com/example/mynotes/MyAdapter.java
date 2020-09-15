@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-private ArrayList<Notes>notesArrayList;
+    private ArrayList<Notes> notesArrayList;
 
     public MyAdapter(ArrayList<Notes> notesArrayList) {
         this.notesArrayList = notesArrayList;
@@ -20,13 +20,14 @@ private ArrayList<Notes>notesArrayList;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_holder,parent,false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_holder,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-     holder.tvMsg.setText(notesArrayList.get(position).getMessage());
+        holder.tvMsg.setText(notesArrayList.get(position).getMessage());
     }
 
     @Override
@@ -35,12 +36,11 @@ private ArrayList<Notes>notesArrayList;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-       TextView tvMsg;
-
-
+        TextView tvMsg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tvMsg = itemView.findViewById(R.id.tvMessage);
         }
     }
